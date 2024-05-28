@@ -22,7 +22,7 @@ export default function UserTable() {
 
     const handleUserDelet = async () => {
         try {
-            const DeletUser = await axios.delete(`http://localhost:8000/api/delete/${userId}`);
+            const DeletUser = await axios.delete(`${import.meta.env.VITE_APP_API_URL}/delete/${userId}`);
             const response = DeletUser.data;
             if (response.success) {
                 toast.success(response.message);
@@ -46,7 +46,7 @@ export default function UserTable() {
     const handleOnSubmit = async (e) => {
         e.preventDefault();
         try {
-            const UpdatedUser = await axios.put(`http://localhost:8000/api/update/${updatedUserId}`, value);
+            const UpdatedUser = await axios.put(`${import.meta.env.VITE_APP_API_URL}/update/${updatedUserId}`, value);
             const response = UpdatedUser.data;
             if (response.success) {
                 toast.success(response.message);

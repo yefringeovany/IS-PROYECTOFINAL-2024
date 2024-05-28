@@ -8,7 +8,7 @@ export default function Table({ Deletuser, UpdatedUser }) {
     useEffect(() => {
         async function FeatchData() {
             try {
-                const user = await axios.get('http://localhost:5001/api/get');
+                const user = await axios.get(`${import.meta.env.VITE_APP_API_URL}/get`);
                 const response = user.data;
                 setData(response);
             } catch (error) {

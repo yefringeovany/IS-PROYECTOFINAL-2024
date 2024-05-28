@@ -23,7 +23,7 @@ export default function AddUser() {
         e.preventDefault();
 
         try {
-            const adduser = await axios.post('http://localhost:5001/api/create', value);
+            const adduser = await axios.post(`${import.meta.env.VITE_APP_API_URL}/create`, value);
             const response = adduser.data;
             if (response.success) {
                 toast.success(response.Message);
